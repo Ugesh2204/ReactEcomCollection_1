@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { slice } from 'lodash'
 
 const Product = () => {
     const [data, setData] = useState([]);
     const [filter,setFilter] = useState(data);
     const [loading, setLoading] = useState(false);
+
+    const [index, setIndex] = useState(5)
    
     console.log(filter);
      let componentMounted = true;
@@ -30,6 +33,11 @@ const Product = () => {
         getProducts();
      }, [])
 
+
+
+     const loadMore = () => {
+
+     }
 
       const Loading = () => {
         return(
@@ -83,6 +91,8 @@ const Product = () => {
                         </>
                     )
                 })}
+
+                <button  onClick= {loadMore} type='button'> Load More +</button>
             </>
         )
       
